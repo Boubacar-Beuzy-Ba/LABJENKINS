@@ -6,15 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-          steps {
-            script {
-              echo 'Building the Angular project'
-              sh 'npm run build'
-            }
-          }
-        }
-        stage('Build') {
+        stage('Installing & Testing') {
             steps {
                 script {
                     echo 'Installing & testing the Angular project'
@@ -24,6 +16,14 @@ pipeline {
 
                 }
             }
+        }
+        stage('Build') {
+          steps {
+            script {
+              echo 'Building the Angular project'
+              sh 'npm run build'
+            }
+          }
         }
     }
 }
