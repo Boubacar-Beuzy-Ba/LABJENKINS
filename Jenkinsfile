@@ -12,6 +12,7 @@ pipeline {
                     echo 'Installing & testing the Angular project'
                     sh 'npm install'
                     sh 'npm install -g @angular/cli'
+                    sh 'npm i --save-dev puppeteer'
                     sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless'
 
                 }
