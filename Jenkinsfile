@@ -12,7 +12,7 @@ pipeline {
                     echo 'Installing & testing the Angular project'
                     sh 'npm install'
                     sh 'npm install -g @angular/cli'
-                    sh ('./node_modules/karma/bin/karma start karma.conf.js')
+                    sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless'
 
                 }
             }
