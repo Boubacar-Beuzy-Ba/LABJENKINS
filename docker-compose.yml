@@ -1,0 +1,8 @@
+version: "3.0"
+services:
+  jenkins:
+    image: labjenkinsgoogle
+    ports:
+      - 8080:8080
+      - 50000:50000
+    restart: unless-stopped
