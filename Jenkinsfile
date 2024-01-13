@@ -12,7 +12,7 @@ pipeline {
                     echo 'Building the Angular project'
                     sh 'npm install'
                     sh 'npm install -g @angular/cli'
-                    sh 'ng test --no-watch --no-progress'
+                    sh 'ng test'
                     sh 'npm run build'
                 }
             }
