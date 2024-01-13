@@ -7,13 +7,21 @@ pipeline {
 
     stages {
         stage('Build') {
+          steps {
+            script {
+              echo 'Building the Angular project'
+              sh 'npm run build'
+            }
+          }
+        }
+        stage('Build') {
             steps {
                 script {
-                    echo 'Building the Angular project'
+                    echo 'Installing & testing the Angular project'
                     sh 'npm install'
                     sh 'npm install -g @angular/cli'
-                    sh 'ng test'
-                    sh 'npm run build'
+                    sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless'
+
                 }
             }
         }
