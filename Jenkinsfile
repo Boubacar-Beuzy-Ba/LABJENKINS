@@ -11,6 +11,7 @@ pipeline {
                 script {
                     echo 'Building the Angular project'
                     sh 'npm install'
+                    sh 'npm install -g @angular/cli'
                     sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless'
                     sh 'npm run build'
                 }
