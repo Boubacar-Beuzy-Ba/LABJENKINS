@@ -17,7 +17,7 @@ pipeline {
                     sh 'npm install'
                     sh 'npm install -g @angular/cli'
                     sh 'npm i --save-dev puppeteer'
-                    sh 'npm run test --code-coverage'
+                    sh 'npm run test --code-coverage --no-watch --no-progress --browsers=ChromeHeadless'
 
                 }
             }
