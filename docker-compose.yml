@@ -7,7 +7,7 @@ services:
       - 50000:50000
     restart: unless-stopped
   nexus:
-    image: sonatype/nexus3
+    image: dockette/nexus:latest
     restart: always
     volumes:
       - "nexus-data:/sonatype-work"
