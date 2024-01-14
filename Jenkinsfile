@@ -58,7 +58,7 @@ pipeline {
                   artifacts: [
                       [artifactId: 'jenkinsAngularLab',
                       classifier: '',
-                      file: 'angular'.zip',
+                      file: 'angular.zip',
                       type: 'zip']
                   ]
               )
