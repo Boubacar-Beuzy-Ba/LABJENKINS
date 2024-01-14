@@ -12,7 +12,7 @@ pipeline {
         NEXUS_REPOSITORY = "angularLabJenkins"
         ANGULAR_PROJECT_PATH = "/var/jenkins_home/workspace/JenkinsAngularLab"
         NEXUS_CREDENTIAL_ID = "nexus_user"
-        ARTIFACT_VERSION = "${BUILD_NUMBER}"
+        ARTIFACT_VERSION = "0.1"
     }
 
 
@@ -43,7 +43,7 @@ pipeline {
                 zip archive: true,
                 dir: ANGULAR_PROJECT_PATH ,
                 glob: '',
-                zipFile: "angular-${BUILD_NUMBER}.zip"
+                zipFile: "angular-"+ARTIFACT_VERSION+".zip"
               }
           }
         }
