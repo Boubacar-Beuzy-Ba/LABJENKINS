@@ -12,7 +12,6 @@ pipeline {
         NEXUS_REPOSITORY = "angularLabJenkins"
         ANGULAR_PROJECT_PATH = "/var/jenkins_home/workspace/JenkinsAngularLab"
         NEXUS_CREDENTIAL_ID = "nexus_user"
-        ARTIFACT_VERSION = "0.1"
     }
 
 
@@ -43,7 +42,7 @@ pipeline {
                 zip archive: true,
                 dir: ANGULAR_PROJECT_PATH ,
                 glob: '',
-                zipFile: "angular-"+ARTIFACT_VERSION+".zip"
+                zipFile: "angular.zip"
               }
           }
         }
@@ -54,13 +53,12 @@ pipeline {
                   protocol: NEXUS_PROTOCOL,
                   nexusUrl: NEXUS_URL,
                   groupId: 'QA',
-                  version: ARTIFACT_VERSION,
                   repository: NEXUS_REPOSITORY,
                   credentialsId: NEXUS_CREDENTIAL_ID,
                   artifacts: [
                       [artifactId: 'jenkinsAngularLab',
                       classifier: '',
-                      file: 'angular-' + version + '.zip',
+                      file: 'angular'.zip',
                       type: 'zip']
                   ]
               )
