@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'labjenkins app is running!';
+  title = 'labjenkins app is running';
   counter = 0;
 
   increment() {
