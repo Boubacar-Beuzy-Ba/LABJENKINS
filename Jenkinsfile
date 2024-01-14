@@ -5,7 +5,7 @@ pipeline {
         nodejs 'NODEJS' // Use the name you configured in Global Tool Configuration
     }
     environment {
-        CHROME_BIN = '/usr/bin/google-chrome'
+        CHROME_BIN = '/usr/bin/chromium'
     }
 
 
