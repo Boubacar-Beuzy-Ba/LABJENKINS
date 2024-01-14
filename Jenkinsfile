@@ -37,7 +37,7 @@ pipeline {
             }
           }
         }
-        stage('Export artefact to Nexus') {
+        stage('Zipping the angular build dist') {
           steps {
             script{
                 zip archive: true,
@@ -46,6 +46,8 @@ pipeline {
                 zipFile: "angular-${BUILD_NUMBER}.zip"
               }
           }
+        }
+        stage('Export artefact to Nexus') {
           steps {
                 nexusArtifactUploader(
                   nexusVersion: NEXUS_VERSION,
