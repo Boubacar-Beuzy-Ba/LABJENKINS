@@ -8,7 +8,7 @@ pipeline {
         CHROME_BIN = '/usr/bin/chromium'
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "127.0.0.1:8081"
+        NEXUS_URL = "nexus:8081"
         NEXUS_REPOSITORY = "angularLabJenkins"
         ANGULAR_PROJECT_PATH = "/var/jenkins_home/workspace/JenkinsAngularLab"
         NEXUS_CREDENTIAL_ID = "nexus_user"
