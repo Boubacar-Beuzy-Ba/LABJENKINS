@@ -30,5 +30,24 @@ pipeline {
             }
           }
         }
+        stage('Export artefact to Nexus') {
+          steps {
+                nexusArtifactUploader(
+                  nexusVersion: 'nexus3',
+                  protocol: 'http',
+                  nexusUrl: 'http://locahost:8081',
+                  groupId: 'QA',
+                  version: '0.1',
+                  repository: 'angularLabJenkins',
+                  credentialsId: 'nexus_user',
+                  artifacts: [
+                      [artifactId: 'angularLabJenkins',
+                      classifier: '',
+                      file: 'my-service-' + version + '.jar',
+                      type: 'jar']
+                  ]
+              )
+          }
+        }
     }
 }
