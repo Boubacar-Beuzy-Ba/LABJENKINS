@@ -10,6 +10,7 @@ module.exports = function (config) {
       require("karma-chrome-launcher"),
       require("karma-jasmine-html-reporter"),
       require("karma-coverage"),
+      require("karma-phantomjs-launcher"),
       require("@angular-devkit/build-angular/plugins/karma"),
     ],
     client: {
@@ -42,7 +43,7 @@ module.exports = function (config) {
         ],
       },
     },
-    browsers: ["ChromeHeadless"],
+    browsers: ["ChromeHeadless", "PhantomJS"],
     singleRun: true,
   });
 };
