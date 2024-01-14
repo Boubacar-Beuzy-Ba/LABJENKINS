@@ -6,6 +6,13 @@ pipeline {
     }
     environment {
         CHROME_BIN = '/usr/bin/chromium'
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCOL = "http"
+        NEXUS_URL = "127.0.0.1:8081"
+        NEXUS_REPOSITORY = "angularLabJenkins"
+        ANGULAR_PROJECT_PATH = "/var/jenkins_home/workspace/JenkinsAngularLab"
+        NEXUS_CREDENTIAL_ID = "nexus_user"
+        ARTIFACT_VERSION = "${BUILD_NUMBER}"
     }
 
 
@@ -32,19 +39,27 @@ pipeline {
         }
         stage('Export artefact to Nexus') {
           steps {
+            script{
+                zip archive: true,
+                dir: ANGULAR_PROJECT_PATH ,
+                glob: '',
+                zipFile: "angular-${BUILD_NUMBER}.zip"
+              }
+          }
+          steps {
                 nexusArtifactUploader(
-                  nexusVersion: 'nexus3',
-                  protocol: 'http',
-                  nexusUrl: 'http://locahost:8081',
+                  nexusVersion: NEXUS_VERSION,
+                  protocol: NEXUS_PROTOCOL,
+                  nexusUrl: NEXUS_URL,
                   groupId: 'QA',
-                  version: '0.1',
-                  repository: 'angularLabJenkins',
-                  credentialsId: 'nexus_user',
+                  version: ARTIFACT_VERSION,
+                  repository: NEXUS_REPOSITORY,
+                  credentialsId: NEXUS_CREDENTIAL_ID,
                   artifacts: [
-                      [artifactId: 'angularLabJenkins',
+                      [artifactId: 'jenkinsAngularLab',
                       classifier: '',
-                      file: 'my-service-' + version + '.jar',
-                      type: 'jar']
+                      file: 'angular-' + version + '.zip',
+                      type: 'zip']
                   ]
               )
           }
